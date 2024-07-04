@@ -14,7 +14,7 @@ function Todo() {
 
     // Fetch tasks from database
     useEffect(() => {
-        axios.get('http://localhost:3000/getTodoList')
+        axios.get('https://todo-be-r5an.onrender.com/getTodoList')
             .then(result => {
                 setTodoList(result.data)
             })
@@ -46,7 +46,7 @@ function Todo() {
             return;
         }
 
-        axios.post('http://localhost:3000/addTodoList', { task: newTask, status: newStatus, deadline: newDeadline })
+        axios.post('https://todo-be-r5an.onrender.com/addTodoList', { task: newTask, status: newStatus, deadline: newDeadline })
             .then(res => {
                 console.log(res);
                 window.location.reload();
@@ -69,7 +69,7 @@ function Todo() {
         }
 
         // Updating edited data to the database through updateById API
-        axios.post('http://localhost:3000/updateTodoList/' + id, editedData)
+        axios.post('https://todo-be-r5an.onrender.com/updateTodoList/' + id, editedData)
             .then(result => {
                 console.log(result);
                 setEditableId(null);
@@ -84,7 +84,7 @@ function Todo() {
 
     // Delete task from database
     const deleteTask = (id) => {
-        axios.delete('http://localhost:3000/deleteTodoList/' + id)
+        axios.delete('https://todo-be-r5an.onrender.com/deleteTodoList/' + id)
             .then(result => {
                 console.log(result);
                 window.location.reload();
